@@ -1,0 +1,6 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+
+0.0.0.0 google.com
+
+0.0.0.0 test.site
+0.0.0.0 testtesttest # comment

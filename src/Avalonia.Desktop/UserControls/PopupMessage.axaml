@@ -1,0 +1,94 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="1000"
+             d:DesignHeight="300"
+             xmlns:vm="clr-namespace:Avalonia.Desktop.ViewModels.Popups"
+             x:DataType="vm:PopupMessageViewModel"
+             x:Class="Avalonia.Desktop.UserControls.PopupMessage">
+
+    <Grid RowDefinitions="auto,*,auto"
+          ColumnDefinitions="*,*"
+          Width="700">
+
+        <Border Grid.RowSpan="3"
+                Grid.ColumnSpan="2"
+                CornerRadius="10"
+                MinHeight="300"
+                BorderBrush="{DynamicResource SystemAccentColor}"
+                BorderThickness="1"
+                Background="{Binding Path=Background, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+
+        <TextBlock HorizontalAlignment="Center"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2" Grid.Column="0"
+                   Margin="30,30,30,10"
+                   Foreground="{DynamicResource SystemAccentColor} "
+                   FontWeight="Bold"
+                   FontSize="25"
+                   Text="Error"/>
+
+        <ScrollViewer Grid.Row="1"
+                      HorizontalAlignment="Center"
+                      Grid.ColumnSpan="2" Grid.Column="0"
+                      Margin="20">
+
+            <TextBlock
+                TextAlignment="{Binding TextAlignment}"
+                FontSize="15"
+                TextWrapping="Wrap"
+                Text="{Binding MessageText, FallbackValue='MESSAGE'}"/>
+        </ScrollViewer>
+
+        <Grid ColumnDefinitions="*,*"
+              Grid.Row="2"
+              Grid.ColumnSpan="2" Grid.Column="0"
+              IsVisible="{Binding IsYesNo}">
+
+            <Button Grid.Column="0"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Margin="30,10,30,30"
+                    Padding="10"
+                    Width="150"
+                    Height="50"
+                    Command="{Binding OkCommand}"
+                    Background="{DynamicResource SystemAccentColor}">
+                Yes
+            </Button>
+
+            <Button Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Margin="30,10,30,30"
+                    Padding="10"
+                    Width="150"
+                    Height="50"
+                    Command="{Binding CancelCommand}">
+                No
+            </Button>
+
+        </Grid>
+
+        <Button Grid.Row="2"
+                Grid.ColumnSpan="2" Grid.Column="0"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Margin="30,10,30,30"
+                Padding="10"
+                Width="150"
+                Height="50"
+                Background="{DynamicResource SystemAccentColor}"
+                Command="{Binding OkCommand}"
+                IsVisible="{Binding IsOkOnly}">
+            OK
+        </Button>
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,27 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Design.PreviewWith>
+        <StackPanel Orientation="Vertical">
+            <TextBlock>Test Text</TextBlock>
+            <Button>https://steamcommunity.com/id/hasnogames/</Button>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <Style Selector="Button:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Blue"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style Selector="Button:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Blue"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style Selector="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+</Styles>
